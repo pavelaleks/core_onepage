@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CORE — коммерциализация научных данных университетов</title>
-<meta name="description" content="Опросы, медицинские записи, словари, результаты экспедиций: всё, что накопили кафедры, в одной витрине. CORE приводит данные в порядок, проверяет права, а университет решает, кому их показать или продать.">
-<meta property="og:title" content="CORE — помогаем университетам коммерциализировать научные данные">
-<meta property="og:description" content="Приводим в порядок, проверяем права, помогаем заключить сделку. Доступ контролирует университет, размещение бесплатно.">
+<title>CORE — маркетплейс научных данных университета</title>
+<meta name="description" content="Соберите данные кафедр в одной витрине и открывайте к ним доступ компаниям. На ваших условиях.">
+<meta property="og:title" content="CORE — маркетплейс научных данных университета">
+<meta property="og:description" content="Соберите данные кафедр в одной витрине и открывайте к ним доступ компаниям. На ваших условиях.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#faf7f2">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -35,17 +35,14 @@ body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--fon
 a{color:inherit;text-decoration:none}
 svg{display:block;max-width:100%}
 h1,h2,h3{margin:0;font-weight:600;line-height:1.05;letter-spacing:-.03em}
-h1{font-size:clamp(36px,4.3vw,58px);letter-spacing:-.045em}
-h2{font-size:clamp(32px,4.4vw,56px);letter-spacing:-.04em}
-h3{font-size:21px;letter-spacing:-.02em;line-height:1.2}
+h2{font-size:clamp(30px,3.6vw,46px);letter-spacing:-.04em}
+h3{font-size:20px;letter-spacing:-.02em;line-height:1.2}
 p{margin:0}
 .serif{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
-.mono{font-family:var(--mono)}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
-.sec{padding:120px 0}
+.sec{padding:96px 0}
 .sec-alt{background:var(--bg2)}
-.head{max-width:780px;margin-bottom:56px}
-.head p{margin-top:20px;color:var(--muted);font-size:19px;max-width:620px}
+.head{margin-bottom:40px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;font:500 16.5px var(--font);border:0;cursor:pointer;transition:transform .15s,box-shadow .2s,background .2s;white-space:nowrap}
@@ -54,8 +51,8 @@ p{margin:0}
 .btn-primary:hover{box-shadow:0 0 0 5px rgba(var(--teal-rgb),.22)}
 .btn-primary .arr{transition:transform .2s}
 .btn-primary:hover .arr{transform:translateX(3px)}
-.btn-link{height:54px;padding:0 6px;color:var(--body);font-weight:500;display:inline-flex;align-items:center}
-.btn-link:hover{color:var(--text)}
+.btn-ghost{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1.5px var(--line2)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--text)}
 .btn-sm{height:40px;padding:0 18px;font-size:15px}
 
 /* nav */
@@ -68,13 +65,13 @@ p{margin:0}
 .nav-links a:hover{color:var(--text);background:rgba(var(--ink),.05)}
 
 /* hero */
-.hero{padding:72px 0 40px;position:relative}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:15px;color:var(--muted);margin-bottom:26px}
-.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(var(--teal-rgb),.16)}
-.hero h1 .serif{color:var(--teal)}
-.lead{margin-top:28px;font-size:clamp(18px,1.55vw,21px);color:var(--body);max-width:580px;line-height:1.55}
-.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;margin-top:38px}
+.hero{padding:80px 0 40px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.brand{font-size:clamp(72px,10vw,136px);font-weight:700;letter-spacing:-.06em;line-height:.9}
+.slogan{margin-top:22px;font-size:clamp(28px,3.1vw,42px);font-weight:500;letter-spacing:-.035em;line-height:1.12;max-width:560px}
+.slogan .serif{color:var(--teal)}
+.lead{margin-top:22px;font-size:clamp(18px,1.5vw,20px);color:var(--body);max-width:520px;line-height:1.55}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 
 /* hero visual: файлы → витрина */
 .mess{position:relative;height:480px}
@@ -103,103 +100,53 @@ p{margin:0}
 .ds b{display:block;font-size:14.5px;font-weight:550;line-height:1.3}
 .ds small{display:block;font-size:12.5px;color:var(--dim);margin-top:2px}
 
-/* бегущая строка */
-.ticker{border-block:1px solid var(--line);overflow:hidden;padding:18px 0;margin-top:64px;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.ticker-in{display:flex;gap:40px;width:max-content;animation:tick 48s linear infinite}
-.ticker span{font-size:17px;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:40px}
-.ticker span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--line2)}
-@keyframes tick{to{transform:translateX(-50%)}}
+/* суть */
+.essence{font-size:clamp(24px,2.7vw,36px);line-height:1.3;letter-spacing:-.025em;font-weight:500;max-width:960px}
+.essence .serif{color:var(--teal)}
 
-/* проблема */
-.story{font-size:clamp(26px,3.1vw,40px);line-height:1.25;letter-spacing:-.025em;font-weight:500;max-width:1000px;color:var(--dim)}
-.story b{color:var(--text);font-weight:500}
-.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:72px;padding-top:36px;border-top:1px solid var(--line2)}
-.pains h3{font-size:20px}
-.pains p{margin-top:10px;color:var(--muted);font-size:16.5px}
-.pains .n{display:block;font:500 13px var(--mono);color:var(--teal);margin-bottom:14px}
+/* проблема: три карточки */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pain{padding:30px}
+.pain .n{display:block;font:500 13px var(--mono);color:var(--teal);margin-bottom:16px}
+.pain p{margin-top:8px;color:var(--muted);font-size:16px}
 
 /* кейсы */
-.cases{display:grid;gap:20px}
-.case{display:grid;grid-template-columns:.95fr 1.05fr;overflow:hidden}
-.case-info{padding:34px 36px}
-.case-tag{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-.case h3{font-size:clamp(22px,2.1vw,28px);line-height:1.15}
-.case .uni{margin-top:8px;color:var(--muted);font-size:15px}
-.case .who{margin-top:22px;font-size:16px;color:var(--body)}
-.case .who b{font-weight:600}
-.nums{display:flex;gap:28px;margin-top:26px}
-.nums div{font-size:13.5px;color:var(--dim)}
-.nums b{display:block;font-size:28px;font-weight:600;color:var(--text);letter-spacing:-.03em;line-height:1.1}
-.fix{background:var(--dark);color:var(--on-dark);padding:30px 32px;display:grid;align-content:center;gap:12px;font:400 14.5px/1.5 var(--mono)}
-.fix-h{display:grid;grid-template-columns:1fr 24px 1fr;gap:12px;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-muted);padding-bottom:6px;border-bottom:1px solid rgba(255,255,255,.1)}
-.fix-r{display:grid;grid-template-columns:1fr 24px 1fr;gap:12px;align-items:center}
-.fix-r s{color:#e7a2a2;text-decoration-color:rgba(231,162,162,.6);overflow-wrap:anywhere}
-.fix-r span{color:var(--mint);overflow-wrap:anywhere}
-.fix-r em{font-style:normal;color:var(--on-dark-muted);text-align:center}
-.cases-note{margin-top:22px;font-size:14.5px;color:var(--dim);max-width:820px}
+.case{padding:28px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,box-shadow .2s}
+.case:hover{transform:translateY(-3px);box-shadow:0 1px 2px rgba(40,32,24,.05),0 18px 40px -18px rgba(40,32,24,.35)}
+.case .uni{color:var(--muted);font-size:15px}
+.case .big{margin-top:14px;font-size:34px;font-weight:600;letter-spacing:-.03em;line-height:1}
+.case .big small{display:block;font-size:14px;font-weight:400;color:var(--dim);letter-spacing:0;margin-top:6px}
+.case .go{margin-top:auto;padding-top:20px;font-weight:500;color:var(--teal)}
+.note{margin-top:20px;font-size:14px;color:var(--dim)}
 
-/* применение */
-.uses{border-top:1px solid var(--line2)}
-.use{display:grid;grid-template-columns:90px 1fr 1.1fr;gap:32px;align-items:baseline;padding:40px 0;border-bottom:1px solid var(--line2)}
-.use .n{font-family:var(--serif);font-style:italic;font-size:56px;line-height:.8;color:var(--teal)}
-.use h3{font-size:clamp(24px,2.6vw,34px);letter-spacing:-.03em}
-.use p{color:var(--body);font-size:17.5px}
-.use p small{display:block;margin-top:10px;color:var(--dim);font-size:14.5px}
+/* применение и предложение: простой список */
+.list{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.item{padding-top:22px;border-top:2px solid var(--text)}
+.item p{margin-top:8px;color:var(--muted);font-size:16px}
+.offer{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.offer .card{padding:24px}
+.offer svg{width:28px;height:28px;color:var(--teal);margin-bottom:18px}
+.offer h3{font-size:18px}
+.offer p{margin-top:6px;color:var(--muted);font-size:15px}
 
-/* бенто */
-.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
-.tile{padding:30px;display:flex;flex-direction:column;gap:12px;min-height:280px}
-.tile p{color:var(--muted);font-size:16px}
-.t-a{grid-column:span 4}.t-b{grid-column:span 2}.t-c{grid-column:span 2}.t-d{grid-column:span 2}.t-e{grid-column:span 2}
-.mini{margin-top:auto;padding-top:14px}
-.mini-list{display:grid;gap:8px}
-.mini-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:12px;font-size:14.5px;background:var(--bg)}
-.mini-row b{font-weight:550}
-.mini-row small{color:var(--dim);font-size:13px;white-space:nowrap}
-.upload{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px;border:1.5px dashed var(--line2);border-radius:12px;color:var(--muted);font-size:14.5px;margin-bottom:8px}
-.upload svg{width:18px;height:18px}
-.q{display:flex;align-items:center;gap:9px;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;font-size:14.5px;background:var(--bg)}
-.q svg{width:16px;height:16px;color:var(--dim);flex:none}
-.q .caret{width:1.5px;height:17px;background:var(--teal);animation:blink 1s steps(1) infinite;margin-left:-6px}
-@keyframes blink{50%{opacity:0}}
-.q-res{margin-top:10px;font-size:13.5px;color:var(--dim)}
-.checks{display:grid;gap:9px;font-size:14.5px}
-.checks div{display:flex;align-items:center;gap:10px}
-.checks i{width:20px;height:20px;border-radius:50%;background:rgba(47,125,62,.12);display:grid;place-items:center;flex:none}
-.checks i::after{content:"";width:8px;height:5px;border:solid var(--green);border-width:0 0 2px 2px;transform:translateY(-1px) rotate(-45deg)}
-.deal{display:grid;gap:8px;font-size:14px}
-.deal div{display:flex;justify-content:space-between;gap:12px;padding-bottom:8px;border-bottom:1px dashed var(--line2)}
-.deal div:last-child{border:0;padding:0}
-.deal span{color:var(--dim)}
-.lockbox{display:flex;align-items:center;gap:12px;padding:14px;border-radius:12px;background:var(--dark);color:var(--on-dark);font-size:14px}
-.lockbox svg{width:22px;height:22px;color:var(--mint);flex:none}
-.lockbox small{display:block;color:var(--on-dark-muted);font-size:12.5px}
-
-/* вопросы */
+/* главное */
 .dark{background:var(--dark);color:var(--on-dark)}
-.dark h2{color:var(--on-dark)}
-.qa{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.qa-item{padding:32px;border-radius:var(--r);background:var(--dark2);border:1px solid rgba(255,255,255,.08)}
-.qa-q{font-size:17px;color:var(--on-dark-muted)}
-.qa-a{margin-top:18px;font-size:clamp(34px,3.2vw,46px);line-height:1;color:var(--mint)}
-.qa-item p{margin-top:16px;color:var(--on-dark-muted);font-size:16px}
+.dark .item{border-color:var(--mint)}
+.dark .item h3{font-size:22px}
+.dark .item p{color:var(--on-dark-muted)}
 
 /* контакт */
 .contact{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.contact .lead{margin-top:22px}
-.steps{margin:32px 0 0;padding:0;display:grid;gap:16px;counter-reset:s}
-.steps li{list-style:none;display:grid;grid-template-columns:34px 1fr;gap:12px;color:var(--body);font-size:16.5px}
-.steps li::before{counter-increment:s;content:counter(s);width:28px;height:28px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;font:500 13px var(--mono);color:var(--teal)}
+.contact .lead{margin-top:18px}
 form.card{padding:32px;display:grid;gap:14px}
 label{display:grid;gap:6px;font-size:14px;color:var(--muted)}
 input,textarea{font:inherit;font-size:16px;color:var(--text);background:var(--bg);border:1px solid var(--line2);border-radius:12px;padding:13px 14px;width:100%}
 input:focus,textarea:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 3px rgba(var(--teal-rgb),.15)}
-textarea{min-height:100px;resize:vertical}
+textarea{min-height:90px;resize:vertical}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .form-msg{font-size:14.5px;min-height:1.4em}
 .form-msg.ok{color:var(--teal)}.form-msg.err{color:var(--rose)}
 .hp{position:absolute;left:-9999px}
-.fine{font-size:13.5px;color:var(--dim)}
 
 footer{padding:36px 0;border-top:1px solid var(--line);color:var(--dim);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -216,37 +163,23 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 @media (max-width:1000px){
   .hero-grid,.contact{grid-template-columns:1fr;gap:48px}
   .mess{max-width:520px;width:100%;margin:0 auto}
-  .case{grid-template-columns:1fr}
-  .qa{grid-template-columns:1fr}
-  .bento{grid-template-columns:1fr 1fr}
-  .t-a{grid-column:span 2}.t-b,.t-c,.t-d,.t-e{grid-column:span 1}
-  .use{grid-template-columns:70px 1fr;gap:12px 20px}
-  .use p{grid-column:2}
+  .offer{grid-template-columns:repeat(2,1fr)}
 }
 @media (max-width:720px){
   .nav-links{display:none}
   .nav-in .btn{margin-left:auto}
   .wrap{padding:0 16px}
-  .sec{padding:80px 0}
-  .hero{padding:44px 0 24px}
+  .sec{padding:72px 0}
+  .hero{padding:48px 0 24px}
   .mess{height:auto;padding-top:196px}
   .shelf{position:relative}
   .file{font-size:12px;padding:8px 11px}
   .f1{top:0;left:0}.f2{top:8px;right:0}.f3{top:58px;left:18%}.f4{top:104px;right:0}.f5{top:112px;left:0}
   .flow{top:156px;height:28px}
-  .pains{grid-template-columns:1fr;gap:28px;margin-top:48px}
-  .case-info{padding:26px 22px}
-  .fix{padding:24px 20px;font-size:13px}
-  .bento{grid-template-columns:1fr}
-  .t-a,.t-b,.t-c,.t-d,.t-e{grid-column:auto}
-  .tile{min-height:0}
-  .mini-row{flex-direction:column;align-items:flex-start;gap:2px}
-  .use{grid-template-columns:1fr;padding:30px 0}
-  .use p{grid-column:auto}
-  .use .n{font-size:44px}
+  .trio,.list,.offer{grid-template-columns:1fr}
+  .list{gap:28px}
   .two{grid-template-columns:1fr}
   .hero-cta .btn{width:100%}
-  .hero-cta .btn-link{width:100%;justify-content:center}
   form.card{padding:22px}
 }
 </style>
@@ -262,25 +195,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </a>
     <nav class="nav-links" aria-label="Разделы">
       <a href="#cases">Примеры</a>
-      <a href="#product">Что внутри</a>
-      <a href="#faq">Вопросы</a>
+      <a href="#offer">Возможности</a>
+      <a href="https://pavelaleks.github.io/core_landing/app/index.html">Маркетплейс ↗</a>
     </nav>
-    <a href="#contact" class="btn btn-primary btn-sm">Обсудить</a>
+    <a href="#contact" class="btn btn-primary btn-sm">Связаться</a>
   </div>
 </header>
 
 <main id="top">
 
-<!-- HERO -->
+<!-- 1. HERO: название, слоган, предложение -->
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><span class="dot"></span>CORE · для университетов</span>
-      <h1>Помогаем университетам коммерциали&shy;зировать научные данные. <span class="serif">Безопасно и&nbsp;на&nbsp;их&nbsp;условиях</span></h1>
-      <p class="lead">Университет продаёт не сами данные, а доступ к ним. Данные остаются у вуза, и один набор может приносить доход снова и снова. Мы очищаем данные, проверяем авторские права и готовим договор по правилам университета. Размещение бесплатное.</p>
+      <h1 class="brand">CORE</h1>
+      <p class="slogan">Маркетплейс научных данных <span class="serif">университета</span></p>
+      <p class="lead">Соберите данные кафедр в одной витрине и открывайте к ним доступ компаниям. На ваших условиях.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Подключить университет <span class="arr">→</span></a>
-        <a href="#cases" class="btn-link">Как это выглядит на деле ↓</a>
+        <a href="https://pavelaleks.github.io/core_landing/app/index.html" class="btn btn-primary">Открыть маркетплейс <span class="arr">→</span></a>
+        <a href="#contact" class="btn btn-ghost">Подключить университет</a>
       </div>
     </div>
 
@@ -302,179 +235,87 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       </div>
     </div>
   </div>
+</section>
 
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-in">
-      <span>социологические опросы</span><span>клинические записи</span><span>словари и корпуса текстов</span><span>полевые наблюдения</span><span>лабораторные журналы</span><span>экспедиции</span><span>архивы и рукописи</span><span>записи речи</span><span>агрономические замеры</span><span>спутниковые снимки</span>
-      <span>социологические опросы</span><span>клинические записи</span><span>словари и корпуса текстов</span><span>полевые наблюдения</span><span>лабораторные журналы</span><span>экспедиции</span><span>архивы и рукописи</span><span>записи речи</span><span>агрономические замеры</span><span>спутниковые снимки</span>
+<!-- 2. СУТЬ -->
+<section class="sec" style="padding-top:56px">
+  <div class="wrap">
+    <p class="essence rv">CORE — маркетплейс результатов научной деятельности университетов: опросов, измерений, словарей, <span class="serif">клинических и&nbsp;полевых данных.</span></p>
+  </div>
+</section>
+
+<!-- 3. ПРОБЛЕМА (без названия раздела) -->
+<section class="sec sec-alt">
+  <div class="wrap trio">
+    <div class="card pain rv"><span class="n">01</span><h3>Данные разбросаны</h3><p>По разным подсистемам, а часто только на компьютерах и флешках преподавателей.</p></div>
+    <div class="card pain rv"><span class="n">02</span><h3>Многие из них ценны</h3><p>У них есть практическая и коммерческая ценность.</p></div>
+    <div class="card pain rv"><span class="n">03</span><h3>Но к продаже не готовы</h3><p>Нужны очистка, проверка и правовая защита.</p></div>
+  </div>
+</section>
+
+<!-- 4. КЕЙСЫ -->
+<section class="sec" id="cases">
+  <div class="wrap">
+    <div class="head rv"><h2>Три реальных датасета</h2></div>
+    <div class="trio">
+      <a class="card case rv" href="https://pavelaleks.github.io/core_landing/app/index.html#demo/covid-almaty-cohort">
+        <span class="chip c-green" style="align-self:flex-start">медицина</span>
+        <h3>Пациенты с COVID-19 в больницах Алматы</h3>
+        <p class="uni">Казахский национальный медицинский университет</p>
+        <p class="big">2 313<small>пациентов</small></p>
+        <span class="go">Открыть в маркетплейсе →</span>
+      </a>
+      <a class="card case rv" href="https://pavelaleks.github.io/core_landing/app/index.html#demo/insurance-literacy-syrdarya">
+        <span class="chip c-amber" style="align-self:flex-start">социология</span>
+        <h3>Отношение к страхованию в Сырдарьинской области</h3>
+        <p class="uni">Гулистанский государственный университет</p>
+        <p class="big">353<small>респондента</small></p>
+        <span class="go">Открыть в маркетплейсе →</span>
+      </a>
+      <a class="card case rv" href="https://pavelaleks.github.io/core_landing/app/index.html#demo/uzbek-geography-terms">
+        <span class="chip c-violet" style="align-self:flex-start">язык</span>
+        <h3>Географические термины на узбекском</h3>
+        <p class="uni">Ургенчский государственный университет</p>
+        <p class="big">1 196<small>терминов</small></p>
+        <span class="go">Открыть в маркетплейсе →</span>
+      </a>
+    </div>
+    <p class="note">Открытые наборы, опубликованные авторами. Показаны для демонстрации.</p>
+  </div>
+</section>
+
+<!-- 5. ПРИМЕНЕНИЕ -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="head rv"><h2>Как использовать данные</h2></div>
+    <div class="list">
+      <div class="item rv"><h3>Внутри университета</h3><p>Для новых исследований и междисциплинарных проектов.</p></div>
+      <div class="item rv"><h3>Для инвесторов</h3><p>Данные показывают компетенции вуза и помогают привлечь венчурный капитал.</p></div>
+      <div class="item rv"><h3>На рынке</h3><p>Доступ к ценным данным можно продавать компаниям.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ПРОБЛЕМА (без названия раздела) -->
-<section class="sec">
+<!-- 6. ЧТО ПРЕДЛАГАЕМ -->
+<section class="sec" id="offer">
   <div class="wrap">
-    <p class="story rv">Кафедра три года проводила опрос. <b>Результаты лежат в Excel на ноутбуке одного преподавателя.</b> О них не знает соседний факультет, не знает проректор по науке, не знает компания, которая заплатила бы за такие данные. <b>Преподаватель меняет работу, и опрос уходит вместе с ним.</b></p>
-    <div class="pains">
-      <div class="rv"><span class="n">01</span><h3>Всё лежит в разных местах</h3><p>Часть в системах университета, часть на личных компьютерах и флешках. Полной картины, что вообще есть, нет ни у кого.</p></div>
-      <div class="rv"><span class="n">02</span><h3>Многое из этого нужно рынку</h3><p>Таких данных нет в открытом доступе. За них готовы платить компании, разработчики ИИ, госпрограммы.</p></div>
-      <div class="rv"><span class="n">03</span><h3>Но продать «как есть» нельзя</h3><p>Сначала данные нужно очистить, проверить и оформить права авторов. У кафедры на это обычно нет ни времени, ни юриста.</p></div>
+    <div class="head rv"><h2>Что мы предлагаем</h2></div>
+    <div class="offer">
+      <div class="card rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 14h8"/></svg><h3>Витрина данных</h3><p>Разместить данные просто.</p></div>
+      <div class="card rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><h3>Поиск и анализ</h3><p>Быстро найти нужное и понять, что внутри.</p></div>
+      <div class="card rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><h3>Контроль прав</h3><p>Авторские права проверяются встроенно.</p></div>
+      <div class="card rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h4"/></svg><h3>Сделки</h3><p>С учётом требований университета.</p></div>
+      <div class="card rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><h3>Закрытые витрины</h3><p>Только для сотрудников.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ПРИМЕРЫ -->
-<section class="sec sec-alt" id="cases">
-  <div class="wrap">
-    <div class="head rv">
-      <h2>Три настоящих датасета. Было и&nbsp;стало</h2>
-      <p>Открытые наборы университетов Центральной Азии, которые мы подготовили, чтобы показать работу на живом материале.</p>
-    </div>
-    <div class="cases">
-      <article class="card case rv">
-        <div class="case-info">
-          <div class="case-tag"><span class="chip c-teal">медицина</span><span class="chip c-teal">2020–2021</span></div>
-          <h3>Пациенты с COVID-19 в больницах Алматы</h3>
-          <p class="uni">Казахский национальный медицинский университет</p>
-          <p class="who"><b>Кому нужно:</b> фарме, разработчикам медицинского ИИ, страховым, органам здравоохранения.</p>
-          <div class="nums"><div><b>2 313</b>пациентов</div><div><b>59</b>полей</div><div><b>3</b>языка описания</div></div>
-        </div>
-        <div class="fix" aria-label="Что исправили">
-          <div class="fix-h"><span>было</span><span></span><span>стало</span></div>
-          <div class="fix-r"><s>«нет роста»</s><em>→</em><span>No growth</span></div>
-          <div class="fix-r"><s>6 способов записать «чувствителен»</s><em>→</em><span>S / I / R</span></div>
-          <div class="fix-r"><s>диагноз текстом</s><em>→</em><span>код МКБ-10</span></div>
-          <div class="fix-r"><s>названия антибиотиков</s><em>→</em><span>коды ATC</span></div>
-        </div>
-      </article>
-
-      <article class="card case rv">
-        <div class="case-info">
-          <div class="case-tag"><span class="chip c-amber">социология</span><span class="chip c-amber">финансы</span></div>
-          <h3>Как жители Сырдарьинской области относятся к страхованию</h3>
-          <p class="uni">Гулистанский государственный университет</p>
-          <p class="who"><b>Кому нужно:</b> страховым компаниям, банкам, микрофинансам, программам финансовой грамотности.</p>
-          <div class="nums"><div><b>353</b>респондента</div><div><b>113</b>переменных</div><div><b>8</b>индексов</div></div>
-        </div>
-        <div class="fix" aria-label="Что исправили">
-          <div class="fix-h"><span>было</span><span></span><span>стало</span></div>
-          <div class="fix-r"><s>баллы формулами Excel</s><em>→</em><span>готовые значения</span></div>
-          <div class="fix-r"><s>непонятные колонки</s><em>→</em><span>ясные названия, ID</span></div>
-          <div class="fix-r"><s>возраст: 0</s><em>→</em><span>нет данных</span></div>
-          <div class="fix-r"><s>сырые ответы</s><em>→</em><span>индекс «готов купить»</span></div>
-        </div>
-      </article>
-
-      <article class="card case rv">
-        <div class="case-info">
-          <div class="case-tag"><span class="chip c-violet">язык</span><span class="chip c-violet">образование</span></div>
-          <h3>Словарь географических терминов на узбекском</h3>
-          <p class="uni">Ургенчский государственный университет</p>
-          <p class="who"><b>Кому нужно:</b> тем, кто делает узбекские языковые модели и переводчики, EdTech, издательствам учебников.</p>
-          <div class="nums"><div><b>1 196</b>терминов</div><div><b>320</b>с переводами</div><div><b>5–11</b>классы</div></div>
-        </div>
-        <div class="fix" aria-label="Что исправили">
-          <div class="fix-h"><span>было</span><span></span><span>стало</span></div>
-          <div class="fix-r"><s>o' · o‘ · o’</s><em>→</em><span>oʻ</span></div>
-          <div class="fix-r"><s>13 дублей</s><em>→</em><span>0</span></div>
-          <div class="fix-r"><s>просто список</s><em>→</em><span>частота в учебниках</span></div>
-          <div class="fix-r"><s>только узбекский</s><em>→</em><span>+ русский, английский</span></div>
-        </div>
-      </article>
-    </div>
-    <p class="cases-note">Наборы опубликованы авторами в открытом доступе, авторы и лицензии сохранены. Договоров с этими университетами у нас пока нет, это демонстрация.</p>
-  </div>
-</section>
-
-<!-- ПРИМЕНЕНИЕ -->
-<section class="sec">
-  <div class="wrap">
-    <div class="head rv"><h2>Что университет может сделать со своими данными</h2></div>
-    <div class="uses">
-      <div class="use rv"><span class="n">1</span><h3>Работать с ними сам</h3><p>Кафедры видят, что уже собрали коллеги, и запускают совместные проекты, не начиная с нуля.<small>Аспиранты, научные группы, междисциплинарные проекты</small></p></div>
-      <div class="use rv"><span class="n">2</span><h3>Показать, на что способен</h3><p>Набор данных убеждает лучше, чем список публикаций. Это аргумент для инвесторов, индустриальных партнёров и грантодателей.<small>Венчурный капитал, партнёрства, гранты</small></p></div>
-      <div class="use rv"><span class="n">3</span><h3>Зарабатывать на доступе</h3><p>Компании платят за доступ к данным по договору, а сами данные остаются у университета. Один набор можно предлагать разным покупателям. Цену и условия устанавливает университет.<small>Компании, разработчики ИИ, госпрограммы</small></p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ПРОДУКТ -->
-<section class="sec sec-alt" id="product">
-  <div class="wrap">
-    <div class="head rv">
-      <h2>Что получает университет</h2>
-      <p>Всё в одном месте: от загрузки файла до подписанного договора.</p>
-    </div>
-    <div class="bento">
-      <div class="card tile t-a rv">
-        <h3>Своя витрина данных</h3>
-        <p>Загрузили файл, коротко описали, что в нём. С остальным поможем.</p>
-        <div class="mini">
-          <div class="upload"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"/></svg>Перетащите файлы сюда</div>
-          <div class="mini-list">
-            <div class="mini-row"><b>Экспедиция в Каракалпакстан, 2019</b><small>кафедра географии</small></div>
-            <div class="mini-row"><b>Урожайность хлопка по участкам</b><small>агрономический факультет</small></div>
-          </div>
-        </div>
-      </div>
-      <div class="card tile t-b rv">
-        <h3>Поиск и анализ</h3>
-        <p>Найти нужное среди всего собранного и быстро понять, что внутри.</p>
-        <div class="mini">
-          <div class="q"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="7" cy="7" r="4.5"/><path d="m10.5 10.5 3 3"/></svg>опросы Сырдарья 2023<span class="caret"></span></div>
-          <p class="q-res">Найдено 4 набора в 3 подразделениях</p>
-        </div>
-      </div>
-      <div class="card tile t-c rv">
-        <h3>Контроль прав</h3>
-        <p>Перед публикацией проверяем авторские права и личные данные.</p>
-        <div class="mini checks">
-          <div><i></i>Авторы указаны</div>
-          <div><i></i>Лицензия определена</div>
-          <div><i></i>Личные данные удалены</div>
-        </div>
-      </div>
-      <div class="card tile t-d rv">
-        <h3>Сделки по вашим правилам</h3>
-        <p>Договор учитывает требования университета.</p>
-        <div class="mini deal">
-          <div><span>Цель</span>обучение модели</div>
-          <div><span>Срок</span>12 месяцев</div>
-          <div><span>Доля авторов</span>по решению вуза</div>
-        </div>
-      </div>
-      <div class="card tile t-e rv">
-        <h3>Закрытые витрины</h3>
-        <p>Для данных, которые не продаются, а нужны только своим.</p>
-        <div class="mini">
-          <div class="lockbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><div>Только сотрудники<small>вход по почте университета</small></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ГЛАВНОЕ, в форме вопросов -->
-<section class="sec dark" id="faq">
-  <div class="wrap">
-    <div class="head rv"><h2>Что обычно спрашивают первым</h2></div>
-    <div class="qa">
-      <div class="qa-item rv">
-        <div class="qa-q">Наши данные окажутся в открытом доступе?</div>
-        <div class="qa-a serif">Нет.</div>
-        <p>Каждый набор видят только те, кому разрешил университет: покупатель, свои сотрудники или вообще никто.</p>
-      </div>
-      <div class="qa-item rv">
-        <div class="qa-q">Сколько это стоит университету?</div>
-        <div class="qa-a serif">Ничего.</div>
-        <p>Размещение данных в системе не требует никаких дополнительных затрат.</p>
-      </div>
-      <div class="qa-item rv">
-        <div class="qa-q">Кому принадлежат данные?</div>
-        <div class="qa-a serif">Университету.</div>
-        <p>Покупатель получает доступ по договору, права на данные остаются у вуза. Данные становятся новым активом университета, и распоряжается им только он.</p>
-      </div>
-    </div>
+<!-- 7. ГЛАВНОЕ -->
+<section class="sec dark">
+  <div class="wrap list">
+    <div class="item rv"><h3>Данные не становятся публичными</h3><p>Доступом управляет университет.</p></div>
+    <div class="item rv"><h3>Без дополнительных затрат</h3><p>Размещение данных бесплатное.</p></div>
+    <div class="item rv"><h3>Новый актив университета</h3><p>Вы управляете им сами.</p></div>
   </div>
 </section>
 
@@ -482,13 +323,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <section class="sec" id="contact">
   <div class="wrap contact">
     <div class="rv">
-      <h2>Начнём с одного набора данных</h2>
-      <p class="lead">Расскажите, что есть у вашего университета. Даже если пока это «где-то у нас был опрос».</p>
-      <ol class="steps">
-        <li>Созвонимся на полчаса и разберёмся, какие данные у вас есть</li>
-        <li>Подготовим один набор и откроем закрытую витрину для ваших сотрудников</li>
-        <li>Дальше вы решаете, что оставить внутри, а что предложить рынку</li>
-      </ol>
+      <h2>Подключите университет</h2>
+      <p class="lead">Оставьте контакт, и мы покажем, как это работает на ваших данных.</p>
     </div>
     <form class="card rv" id="lead" novalidate>
       <div class="two">
@@ -496,11 +332,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <label>Университет<input name="university" autocomplete="organization"></label>
       </div>
       <label>Почта или телефон<input name="contact" required></label>
-      <label>Какие данные у вас есть (если знаете)<textarea name="message" placeholder="Например: опросы студентов, замеры с опытных полей, записи диалектов…"></textarea></label>
+      <label>Комментарий<textarea name="message"></textarea></label>
       <input class="hp" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="btn btn-primary" type="submit">Отправить</button>
       <p class="form-msg" role="status" aria-live="polite"></p>
-      <p class="fine">Контакты используем только для того, чтобы связаться с вами.</p>
     </form>
   </div>
 </section>
@@ -510,7 +345,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <footer>
   <div class="wrap">
     <span>© 2026 CORE · маркетплейс научных данных университетов</span>
-    <a href="#top">Наверх ↑</a>
+    <a href="https://pavelaleks.github.io/core_landing/app/index.html">Маркетплейс ↗</a>
   </div>
 </footer>
 
@@ -537,7 +372,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     if (!d.name.trim() || !d.contact.trim()) { msg.className = "form-msg err"; msg.textContent = "Напишите имя и как с вами связаться."; return; }
     btn.disabled = true; btn.textContent = "Отправляем…"; msg.textContent = "";
     fetch(ENDPOINT, {method:"POST", headers:{"Content-Type":"application/json", "Accept":"application/json"},
-      body: JSON.stringify({_subject:"CORE: заявка с лендинга", "Имя":d.name, "Университет":d.university, "Контакт":d.contact, "Данные":d.message})})
+      body: JSON.stringify({_subject:"CORE: заявка с лендинга", "Имя":d.name, "Университет":d.university, "Контакт":d.contact, "Комментарий":d.message})})
       .then(function(r){ if(!r.ok) throw 0; form.reset(); msg.className = "form-msg ok"; msg.textContent = "Получили, спасибо! Скоро напишем."; })
       .catch(function(){ msg.className = "form-msg err"; msg.innerHTML = 'Не получилось отправить. Напишите нам на <a href="mailto:' + EMAIL + '" style="text-decoration:underline">' + EMAIL + '</a>'; })
       .finally(function(){ btn.disabled = false; btn.textContent = "Отправить"; });
